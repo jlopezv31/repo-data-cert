@@ -3,11 +3,14 @@ on:
   issues:
     types:
       - opened
-      - edited
+env:
+  ISSUE_TITTLE: ${{ github.event.issue.title }}
 jobs:
   test-issue:
     name: Validate Issue
     runs-on: ubuntu-latest
     steps:
       - name: Output Validation Results
+        if: contains(env.ISSUE_TITTLE, 'MERGE-TO-MASTER')
         run: echo 'The tittle issue is ${{ github.event.issue.title }}'
+
