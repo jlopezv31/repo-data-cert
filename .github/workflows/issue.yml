@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output Validation Results
-        run: echo 'The label was bug'
+        run: echo 'The tittle issue is ${{ github.event.issue.title }}'
